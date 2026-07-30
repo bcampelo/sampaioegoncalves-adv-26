@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DESIGN TOKENS — fonte única de verdade em CSS (ver MASTER.md)
+   ============================================================ */
+:root {
+  --navy-950: #050a14;
+  --navy-900: #0a1220;
+  --navy-800: #0d1a30;
+  --navy-700: #0f1e3d;
+  --gold: #c9a961;
+  --gold-light: #d4af37;
+  --gold-soft: #e8d9a8;
+  --ink: #f5f3ec;
+
+  --shell: 88rem;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scrollbar-color: var(--gold) var(--navy-950);
+  }
+
+  /* Lenis controla o scroll; nada de scroll-behavior nativo em conflito */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--navy-900);
+    color: var(--ink);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--navy-950);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--navy-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--gold), var(--gold-light));
+    border-radius: 10px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: var(--shell);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+  }
+
+  .glass {
+    background: rgba(245, 243, 236, 0.035);
+    backdrop-filter: blur(18px) saturate(120%);
+    -webkit-backdrop-filter: blur(18px) saturate(120%);
+    border: 1px solid rgba(245, 243, 236, 0.09);
+  }
+
+  .glass-strong {
+    background: rgba(10, 18, 32, 0.72);
+    backdrop-filter: blur(24px) saturate(130%);
+    -webkit-backdrop-filter: blur(24px) saturate(130%);
+    border: 1px solid rgba(245, 243, 236, 0.1);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(105deg, #a8863f 0%, #d4af37 35%, #f0e2b6 52%, #c9a961 70%, #a8863f 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .hairline {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(201, 169, 97, 0.5) 50%,
+      transparent
+    );
+  }
+
+  .overline {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-weight: 600;
+    color: var(--gold);
+  }
+}
+
+@layer utilities {
+  /* Máscara de reveal por linha — o filho translada dentro do overflow hidden */
+  .reveal-mask {
+    display: block;
+    overflow: hidden;
+    clip-path: inset(-40% -40% -40% -40%);
+  }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .bg-radial-navy {
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(21, 39, 71, 0.65), transparent 60%),
+      radial-gradient(90% 60% at 85% 20%, rgba(201, 169, 97, 0.025), transparent 55%),
+      var(--navy-900);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* ============================================================
+   Reduced motion — desliga parallax/reveals pesados
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .grain,
+  .animate-marquee-x {
+    animation: none !important;
+  }
+}
