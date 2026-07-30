@@ -38,9 +38,11 @@ export function Navbar() {
           data-testid="nav-logo"
           aria-label={SITE.full}
         >
-          <span className="font-display text-2xl italic tracking-tight text-gold-gradient">
-            {SITE.monogram}
-          </span>
+          <img
+            src="/logos/mark-gold.png"
+            alt={SITE.monogram}
+            className="h-8 w-auto md:h-9"
+          />
           <span className="hidden text-sm font-medium tracking-wide text-ink/85 sm:block">
             {SITE.name}
           </span>

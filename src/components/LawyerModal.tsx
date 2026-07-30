@@ -128,6 +128,10 @@ export function LawyerModal({ lawyer, onClose }: LawyerModalProps) {
                 {lawyer.name}
               </h3>
               <span className="text-sm text-gold/80">{lawyer.oab}</span>
+              <span className="mt-2 inline-flex w-fit items-center gap-2 rounded-full border border-gold/30 bg-gold/5 px-3.5 py-1.5 text-xs font-medium tracking-wide text-gold">
+                <lawyer.specialty.icon size={13} strokeWidth={1.6} />
+                {lawyer.specialty.title}
+              </span>
             </div>
 
             <p

@@ -65,9 +65,11 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
 
       <div className="pl-inner absolute inset-0 flex flex-col items-center justify-center">
         <div className="overflow-hidden">
-          <div className="pl-mono font-display text-6xl italic tracking-tight text-gold-gradient md:text-8xl">
-            {SITE.monogram}
-          </div>
+          <img
+            src="/logos/mark-gold.png"
+            alt={SITE.monogram}
+            className="pl-mono h-20 w-auto md:h-28"
+          />
         </div>
         <div className="pl-line mt-6 h-px w-40 origin-left bg-gradient-to-r from-transparent via-gold to-transparent md:w-56" />
         <div className="pl-label mt-5 overline text-ink-faint">

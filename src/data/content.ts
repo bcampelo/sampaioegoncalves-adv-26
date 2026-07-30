@@ -1,11 +1,8 @@
 import {
   Scale,
   Briefcase,
-  HeartHandshake,
   Gavel,
-  Building2,
   ShieldCheck,
-  Sprout,
   Leaf,
   type LucideIcon,
 } from "lucide-react";
@@ -40,33 +37,32 @@ export interface PracticeArea {
   icon: LucideIcon;
   title: string;
   desc: string;
+  /** Sócio responsável pela área — exibido apenas nas duas grandes especialidades. */
+  partner?: string;
+  /** Sub-áreas exibidas como chips (usado em "Outras Áreas"). */
+  items?: string[];
 }
 
+/* As duas primeiras áreas são as grandes especialidades do escritório —
+   cada uma com o sócio responsável. As demais mantêm o escritório completo,
+   cobrindo o restante da demanda jurídica do cliente. */
 export const PRACTICE_AREAS: PracticeArea[] = [
+  {
+    icon: Leaf,
+    title: "Direito Ambiental e Agrário",
+    desc: "Defesa administrativa contra autos de infração ambiental, regularização fundiária, usucapião extrajudicial, consultoria preventiva e assessoria ao produtor rural.",
+    partner: "Dr. Gabriel Sampaio Gonçalves",
+  },
+  {
+    icon: Gavel,
+    title: "Direito Criminal",
+    desc: "Audiências de custódia, habeas corpus, tribunal do júri, execução penal e defesa técnica em processos criminais.",
+    partner: "Dr. Elandio Chaves Sampaio Junior",
+  },
   {
     icon: Scale,
     title: "Direito Civil",
     desc: "Contratos, responsabilidade civil e a defesa firme dos seus direitos patrimoniais.",
-  },
-  {
-    icon: Briefcase,
-    title: "Direito Trabalhista",
-    desc: "Relações de trabalho, verbas rescisórias e defesa técnica em reclamações.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Direito de Família",
-    desc: "Divórcios, guarda, pensão e sucessões conduzidos com sensibilidade e discrição.",
-  },
-  {
-    icon: Gavel,
-    title: "Direito Penal",
-    desc: "Defesa criminal estratégica e combativa em todas as instâncias.",
-  },
-  {
-    icon: Building2,
-    title: "Direito Empresarial",
-    desc: "Consultoria societária, contratos e assessoria contínua para o seu negócio.",
   },
   {
     icon: ShieldCheck,
@@ -74,20 +70,22 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     desc: "Aposentadorias, benefícios e revisões junto ao INSS com acompanhamento próximo.",
   },
   {
-    icon: Sprout,
-    title: "Direito Agrário",
-    desc: "Regularização fundiária, posse, propriedade rural e conflitos de terra.",
-  },
-  {
-    icon: Leaf,
-    title: "Direito Ambiental",
-    desc: "Licenciamento, defesa em autos de infração e compliance ambiental.",
+    icon: Briefcase,
+    title: "Outras Áreas",
+    desc: "Um escritório completo: atendimento também em Direito Trabalhista, de Família e Empresarial, do primeiro atendimento ao resultado.",
+    items: ["Trabalhista", "Família", "Empresarial"],
   },
 ];
 
 export interface Skill {
   nome: string;
   nivel: number;
+}
+
+export interface Specialty {
+  icon: LucideIcon;
+  title: string;
+  points: string[];
 }
 
 export interface Lawyer {
@@ -100,6 +98,8 @@ export interface Lawyer {
    *  proportional to each other in the grid. Defaults to "center top" if omitted. */
   photoPosition?: string;
   oab: string;
+  /** Especialidade principal do sócio, com maior destaque no site. */
+  specialty: Specialty;
   tags: string[];
   bio: string;
   skills: Skill[];
@@ -119,14 +119,25 @@ export const LAWYERS: Lawyer[] = [
     role: "Sócio-fundador",
     photo: "/lawyers/gabriel.jpg",
     photoPosition: "center 50%",
-    oab: "OAB/AC 0000",
-    tags: ["Civil", "Empresarial", "Família", "Ambiental"],
-    bio: "Sócio-fundador do escritório, o Dr. Gabriel construiu sua trajetória sobre os pilares da ética e da estratégia. Com atuação destacada em Direito Civil e Empresarial, dedica-se a oferecer soluções jurídicas personalizadas, unindo rigor técnico e proximidade com o cliente. [Texto de exemplo — substitua pela biografia real.]",
+    oab: "OAB/AC nº 6.095",
+    specialty: {
+      icon: Leaf,
+      title: "Direito Ambiental e Agrário",
+      points: [
+        "Defesa administrativa contra autos de infração ambiental",
+        "Regularização fundiária",
+        "Usucapião extrajudicial",
+        "Consultoria preventiva",
+        "Assessoria ao produtor rural",
+      ],
+    },
+    tags: ["Ambiental", "Agrário", "Civil", "Empresarial"],
+    bio: "Natural de Sena Madureira/AC, advogado desde 2022, o Dr. Gabriel é o sócio responsável pela área de Direito Ambiental e Agrário do escritório — atuando na defesa administrativa contra autos de infração ambiental, regularização fundiária, usucapião extrajudicial, consultoria preventiva e assessoria ao produtor rural. Também integra o atendimento das demais áreas do escritório, unindo rigor técnico e proximidade com o cliente em cada causa.",
     skills: [
-      { nome: "Direito Civil", nivel: 95 },
-      { nome: "Direito Empresarial", nivel: 90 },
-      { nome: "Direito de Família", nivel: 85 },
-      { nome: "Direito Ambiental", nivel: 80 },
+      { nome: "Direito Ambiental", nivel: 95 },
+      { nome: "Direito Agrário", nivel: 92 },
+      { nome: "Direito Civil", nivel: 85 },
+      { nome: "Direito Empresarial", nivel: 80 },
     ],
     redes: {
       instagram: "https://instagram.com/sampaioegoncalves.adv",
@@ -136,15 +147,26 @@ export const LAWYERS: Lawyer[] = [
   },
   {
     id: "junior",
-    name: "Dr. Junior Sampaio",
-    role: "Advogado Associado",
+    name: "Dr. Elandio Chaves Sampaio Junior",
+    role: "Sócio-fundador",
     photo: "/lawyers/junior.jpg",
-    oab: "OAB/AC 0000",
-    tags: ["Trabalhista", "Penal", "Previdenciário"],
-    bio: "Advogado associado com sólida atuação no contencioso, o Dr. Junior é reconhecido pela combatividade e pelo compromisso com resultados. Especializado em Direito Trabalhista e Penal, atua com foco na defesa firme e na busca incansável pelos interesses de seus clientes. [Texto de exemplo — substitua pela biografia real.]",
+    oab: "OAB/AC nº 6.966",
+    specialty: {
+      icon: Gavel,
+      title: "Direito Criminal",
+      points: [
+        "Audiências de custódia",
+        "Habeas corpus",
+        "Tribunal do júri",
+        "Execução penal",
+        "Defesa em processos criminais",
+      ],
+    },
+    tags: ["Criminal", "Trabalhista", "Previdenciário"],
+    bio: "Natural de Sena Madureira/AC, advogado desde 2022, o Dr. Elandio é o sócio responsável pela área Criminal do escritório — atuando em audiências de custódia, habeas corpus, tribunal do júri, execução penal e defesa em processos criminais. Também integra o atendimento das demais áreas do escritório, com o mesmo compromisso técnico e combatividade em cada caso.",
     skills: [
-      { nome: "Direito Trabalhista", nivel: 92 },
-      { nome: "Direito Penal", nivel: 88 },
+      { nome: "Direito Criminal", nivel: 95 },
+      { nome: "Direito Trabalhista", nivel: 85 },
       { nome: "Direito Previdenciário", nivel: 80 },
     ],
     redes: {
@@ -153,19 +175,6 @@ export const LAWYERS: Lawyer[] = [
       whatsapp: "https://wa.me/5568992173865",
     },
   },
-];
-
-export interface Stat {
-  target: number;
-  suffix: string;
-  label: string;
-}
-
-export const STATS: Stat[] = [
-  { target: 2, suffix: "+", label: "Anos de atuação" },
-  { target: 8, suffix: "", label: "Áreas de especialização" },
-  { target: 250, suffix: "+", label: "Clientes atendidos" },
-  { target: 98, suffix: "%", label: "Índice de satisfação" },
 ];
 
 export interface ManifestoItem {

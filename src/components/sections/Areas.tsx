@@ -41,12 +41,12 @@ export function Areas() {
           overline="Áreas de Atuação"
           title="Soluções jurídicas para"
           emphasis="cada demanda."
-          description="Atuação completa e especializada, unindo profundidade técnica e visão estratégica em cada frente do direito."
+          description="Duas grandes especialidades — Ambiental/Agrário e Criminal — sustentadas por um escritório completo, com atuação técnica em todas as frentes do direito."
           className="max-w-3xl"
         />
 
         <div
-          className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
           style={perspectiveWrap}
         >
           {PRACTICE_AREAS.map((area) => {
@@ -69,6 +69,23 @@ export function Areas() {
                       <p className="text-sm leading-relaxed text-ink-muted">
                         {area.desc}
                       </p>
+                      {area.partner && (
+                        <p className="mt-1 text-xs uppercase tracking-[0.15em] text-gold/80">
+                          Sócio responsável — {area.partner}
+                        </p>
+                      )}
+                      {area.items && (
+                        <div className="mt-1 flex flex-wrap gap-2">
+                          {area.items.map((item) => (
+                            <span
+                              key={item}
+                              className="glass rounded-full px-3 py-1 text-xs text-ink/75"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                     <div className="mt-auto h-px w-0 bg-gradient-to-r from-gold to-transparent transition-all duration-500 ease-out-expo group-hover:w-full" />
                   </div>

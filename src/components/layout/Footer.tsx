@@ -15,9 +15,11 @@ export function Footer() {
       <div className="shell">
         <div className="flex flex-col gap-14 lg:flex-row lg:justify-between">
           <div className="max-w-sm">
-            <span className="font-display text-5xl italic tracking-tight text-gold-gradient">
-              {SITE.monogram}
-            </span>
+            <img
+              src="/logos/mark-gold.png"
+              alt={SITE.monogram}
+              className="h-16 w-auto md:h-20"
+            />
             <p className="mt-5 text-sm leading-relaxed text-ink-muted">
               {SITE.full}. Advocacia de excelência com ética, estratégia e
               proximidade em {SITE.city}.
