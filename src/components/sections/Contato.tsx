@@ -46,7 +46,7 @@ export function Contato() {
           overline="Contato"
           title="Vamos conversar sobre o"
           emphasis="seu caso."
-          description="O primeiro atendimento é o começo de uma defesa cuidadosa. Fale diretamente com o escritório pelo canal que preferir."
+          description="O primeiro atendimento é o começo de uma defesa cuidadosa. Atendemos presencialmente em Sena Madureira e, à distância, em todo o Acre. Fale pelo canal que preferir."
           align="center"
           className="mx-auto"
         />

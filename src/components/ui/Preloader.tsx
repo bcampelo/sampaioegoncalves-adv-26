@@ -24,12 +24,11 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
         onComplete: () => setDone(true),
       });
 
-      tl.set(".pl-lock", { pointerEvents: "auto" })
-        .fromTo(
-          ".pl-mono",
-          { yPercent: 120, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 1, ease: "power4.out" }
-        )
+      tl.fromTo(
+        ".pl-mono",
+        { yPercent: 120, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 1, ease: "power4.out" }
+      )
         .fromTo(
           ".pl-line",
           { scaleX: 0 },
@@ -57,7 +56,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
   if (done) return null;
 
   return (
-    <div ref={root} className="pl-lock fixed inset-0 z-[100]" aria-hidden>
+    <div ref={root} className="fixed inset-0 z-[100]" aria-hidden>
       <div className="absolute inset-0 flex">
         <div className="pl-panel h-full w-1/2 bg-navy-950" />
         <div className="pl-panel h-full w-1/2 bg-navy-950" />

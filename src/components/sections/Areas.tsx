@@ -1,11 +1,14 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { ArrowRight } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TiltCard } from "@/components/ui/TiltCard";
-import { PRACTICE_AREAS } from "@/data/content";
+import { Reveal } from "@/components/ui/Reveal";
+import { GoldButton } from "@/components/ui/GoldButton";
+import { PRACTICE_AREAS, CONTACTS } from "@/data/content";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
-import { perspectiveWrap } from "@/lib/utils";
+import { cx, perspectiveWrap, whatsappLink, DEFAULT_WHATSAPP_MESSAGE } from "@/lib/utils";
 import { EASE, DURATION, STAGGER } from "@/lib/motion";
 
 export function Areas() {
@@ -39,9 +42,9 @@ export function Areas() {
       <div className="shell">
         <SectionHeading
           overline="Áreas de Atuação"
-          title="Soluções jurídicas para"
-          emphasis="cada demanda."
-          description="Duas grandes especialidades — Ambiental/Agrário e Criminal — sustentadas por um escritório completo, com atuação técnica em todas as frentes do direito."
+          title="Soluções jurídicas para quem vive da terra e"
+          emphasis="defende seus direitos."
+          description="Nossa principal frente de atuação é o direito ambiental e agrário, com atendimento em todo o Acre. Sustentamos esse trabalho com um escritório completo, preparado para atuar também nas áreas criminal, civil e previdenciária."
           className="max-w-3xl"
         />
 
@@ -58,11 +61,28 @@ export function Areas() {
                 className="opacity-0 [transform:translateY(36px)]"
               >
                 <TiltCard className="group h-full">
-                  <div className="glass relative flex h-full flex-col gap-6 overflow-hidden rounded-2xl p-7 transition-colors duration-500 group-hover:border-gold/25">
-                    <div className="relative flex h-14 w-14 items-center justify-center rounded-xl border border-ink/12 bg-ink/[0.04] text-ink/60 transition-all duration-500 group-hover:border-gold/50 group-hover:bg-gold/5 group-hover:text-gold group-hover:shadow-[0_0_24px_-4px_rgba(201,169,97,0.6)]">
+                  <div
+                    className={cx(
+                      "glass relative flex h-full flex-col gap-6 overflow-hidden rounded-2xl p-7 transition-colors duration-500 group-hover:border-gold/25",
+                      area.featured && "border-gold/30 bg-gold/[0.035] shadow-gold-glow"
+                    )}
+                  >
+                    <div
+                      className={cx(
+                        "relative flex h-14 w-14 items-center justify-center rounded-xl border transition-all duration-500 group-hover:border-gold/50 group-hover:bg-gold/5 group-hover:text-gold group-hover:shadow-[0_0_24px_-4px_rgba(201,169,97,0.6)]",
+                        area.featured
+                          ? "border-gold/40 bg-gold/[0.08] text-gold"
+                          : "border-ink/12 bg-ink/[0.04] text-ink/60"
+                      )}
+                    >
                       <Icon size={24} strokeWidth={1.4} />
                     </div>
                     <div className="flex flex-col gap-2.5">
+                      {area.featured && (
+                        <span className="overline text-gold">
+                          Especialidade principal
+                        </span>
+                      )}
                       <h3 className="font-display text-2xl text-ink">
                         {area.title}
                       </h3>
@@ -75,13 +95,30 @@ export function Areas() {
                         </p>
                       )}
                     </div>
-                    <div className="mt-auto h-px w-0 bg-gradient-to-r from-gold to-transparent transition-all duration-500 ease-out-expo group-hover:w-full" />
+                    <div
+                      className={cx(
+                        "mt-auto h-px bg-gradient-to-r from-gold to-transparent transition-all duration-500 ease-out-expo group-hover:w-full",
+                        area.featured ? "w-full" : "w-0"
+                      )}
+                    />
                   </div>
                 </TiltCard>
               </div>
             );
           })}
         </div>
+
+        <Reveal y={24} delay={0.15} className="mt-14 flex justify-center">
+          <GoldButton
+            href={whatsappLink(CONTACTS.whatsapp1.raw, DEFAULT_WHATSAPP_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
+            icon={<ArrowRight size={16} />}
+            data-testid="areas-cta-whatsapp"
+          >
+            Fale com o escritório
+          </GoldButton>
+        </Reveal>
       </div>
     </section>
   );

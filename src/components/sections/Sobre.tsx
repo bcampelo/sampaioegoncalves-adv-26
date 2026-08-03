@@ -9,8 +9,8 @@ export function Sobre() {
         <SectionHeading
           overline="O Escritório"
           title="Uma banca construída sobre"
-          emphasis="princípios."
-          description="Sampaio & Gonçalves Advogados Associados nasceu do compromisso de oferecer uma advocacia técnica, próxima e verdadeiramente dedicada a cada cliente."
+          emphasis="confiança."
+          description="Sampaio & Gonçalves Advogados Associados nasceu do compromisso de oferecer uma advocacia técnica, próxima e verdadeiramente dedicada a cada cliente. Nossa atuação tem foco especial em direito ambiental e agrário, área central para quem vive e trabalha na terra acreana, sustentada por um escritório completo, preparado para acompanhar o cliente em diversas frentes do direito."
           className="max-w-3xl"
         />
 

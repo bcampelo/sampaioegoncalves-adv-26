@@ -94,14 +94,14 @@ export function Hero({ introReady }: { introReady: boolean }) {
       >
         <div className="flex max-w-2xl flex-col items-start gap-9">
           <div data-fade className="flex flex-col gap-3">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <img
                 src="/logos/mark-gold.png"
                 alt={SITE.monogram}
-                className="h-9 w-auto md:h-10"
+                className="h-11 w-auto md:h-14"
               />
               <span className="h-px w-10 bg-gold/60" />
-              <span className="font-display text-2xl italic tracking-tight text-ink md:text-3xl">
+              <span className="font-display text-3xl italic tracking-tight text-gold-gradient md:text-4xl">
                 {SITE.name}
               </span>
             </div>
@@ -111,13 +111,13 @@ export function Hero({ introReady }: { introReady: boolean }) {
           <h1 className="font-display text-display-xl font-medium text-ink">
             <span className="reveal-mask">
               <span data-hline className="inline-block">
-                A defesa dos seus
+                A defesa dos seus direitos,
               </span>
             </span>
             <span className="reveal-mask">
               <span data-hline className="inline-block">
-                direitos com{" "}
-                <span className="text-gold-gradient italic">excelência.</span>
+                da terra à{" "}
+                <span className="text-gold-gradient italic">Justiça.</span>
               </span>
             </span>
           </h1>
@@ -126,8 +126,10 @@ export function Hero({ introReady }: { introReady: boolean }) {
             data-fade
             className="max-w-md text-base leading-relaxed text-ink-muted md:text-lg"
           >
-            Ética, estratégia e proximidade em cada causa — do primeiro
+            Ética, estratégia e proximidade em cada causa, do primeiro
             atendimento ao resultado.
+            <br />
+            Atendemos Sena Madureira e todo o estado do Acre.
           </p>
 
           <div

@@ -18,7 +18,6 @@ export const SITE = {
   full: "Sampaio & Gonçalves Advogados Associados",
   monogram: "S&G",
   tagline: "Advocacia de excelência",
-  city: "Sena Madureira — Acre",
 } as const;
 
 export const CONTACTS = {
@@ -38,17 +37,21 @@ export interface PracticeArea {
   desc: string;
   /** Sócio responsável pela área — exibido apenas nas duas grandes especialidades. */
   partner?: string;
+  /** Marca a especialidade principal do escritório, com destaque visual na grade. */
+  featured?: boolean;
 }
 
-/* As duas primeiras áreas são as grandes especialidades do escritório —
-   cada uma com o sócio responsável. As demais mantêm o escritório completo,
-   cobrindo o restante da demanda jurídica do cliente. */
+/* A primeira área é a especialidade principal do escritório — prioridade
+   estratégica atual —, com destaque visual e o sócio responsável. As
+   demais mantêm o escritório completo, cobrindo o restante da demanda
+   jurídica do cliente. */
 export const PRACTICE_AREAS: PracticeArea[] = [
   {
     icon: Leaf,
     title: "Direito Ambiental e Agrário",
-    desc: "Defesa administrativa contra autos de infração ambiental, regularização fundiária, usucapião extrajudicial, consultoria preventiva e assessoria ao produtor rural.",
+    desc: "Defendemos posseiros, produtores rurais e comunidades extrativistas em processos de regularização fundiária junto ao INCRA e ao ITERACRE, defesa administrativa perante o IMAC, usucapião extrajudicial, consultoria preventiva e assessoria contínua ao produtor rural. Também atuamos em conflitos envolvendo assentamentos e reservas extrativistas.",
     partner: "Dr. Gabriel Sampaio Gonçalves",
+    featured: true,
   },
   {
     icon: Gavel,
@@ -115,15 +118,15 @@ export const LAWYERS: Lawyer[] = [
       icon: Leaf,
       title: "Direito Ambiental e Agrário",
       points: [
-        "Defesa administrativa contra autos de infração ambiental",
-        "Regularização fundiária",
+        "Regularização fundiária junto ao INCRA e ao ITERACRE",
+        "Defesa administrativa perante o IMAC",
         "Usucapião extrajudicial",
-        "Consultoria preventiva",
-        "Assessoria ao produtor rural",
+        "Consultoria preventiva e assessoria ao produtor rural",
+        "Conflitos em assentamentos e reservas extrativistas",
       ],
     },
     tags: ["Ambiental", "Agrário", "Civil"],
-    bio: "Natural de Sena Madureira/AC, advogado desde 2022, o Dr. Gabriel é o sócio responsável pela área de Direito Ambiental e Agrário do escritório — atuando na defesa administrativa contra autos de infração ambiental, regularização fundiária, usucapião extrajudicial, consultoria preventiva e assessoria ao produtor rural. Também integra o atendimento das demais áreas do escritório, unindo rigor técnico e proximidade com o cliente em cada causa.",
+    bio: "Natural de Sena Madureira/AC, advogado desde 2022, o Dr. Gabriel é o sócio responsável pela área de Direito Ambiental e Agrário do escritório — defendendo posseiros, produtores rurais e comunidades extrativistas em processos de regularização fundiária junto ao INCRA e ao ITERACRE, defesa administrativa perante o IMAC, usucapião extrajudicial, consultoria preventiva e assessoria contínua ao produtor rural. Também atua em conflitos envolvendo assentamentos e reservas extrativistas, além de integrar o atendimento das demais áreas do escritório.",
     skills: [
       { nome: "Direito Ambiental", nivel: 95 },
       { nome: "Direito Agrário", nivel: 92 },
@@ -186,7 +189,7 @@ export const MANIFESTO: ManifestoItem[] = [
   {
     num: "03",
     title: "Proximidade",
-    text: "Atendimento personalizado e humano. Você fala diretamente com quem cuida da sua causa.",
+    text: "Você fala diretamente com quem cuida do seu caso, do primeiro contato até o desfecho.",
   },
 ];
 

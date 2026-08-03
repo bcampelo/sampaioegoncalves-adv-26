@@ -21,8 +21,8 @@ export function Footer() {
               className="h-16 w-auto md:h-20"
             />
             <p className="mt-5 text-sm leading-relaxed text-ink-muted">
-              {SITE.full}. Advocacia de excelência com ética, estratégia e
-              proximidade em {SITE.city}.
+              {SITE.full}. Advocacia com ética, estratégia e proximidade,
+              atuando em Sena Madureira e em todo o Acre.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
