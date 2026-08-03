@@ -1,6 +1,5 @@
 import {
   Scale,
-  Briefcase,
   Gavel,
   ShieldCheck,
   Leaf,
@@ -39,8 +38,6 @@ export interface PracticeArea {
   desc: string;
   /** Sócio responsável pela área — exibido apenas nas duas grandes especialidades. */
   partner?: string;
-  /** Sub-áreas exibidas como chips (usado em "Outras Áreas"). */
-  items?: string[];
 }
 
 /* As duas primeiras áreas são as grandes especialidades do escritório —
@@ -68,12 +65,6 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     icon: ShieldCheck,
     title: "Direito Previdenciário",
     desc: "Aposentadorias, benefícios e revisões junto ao INSS com acompanhamento próximo.",
-  },
-  {
-    icon: Briefcase,
-    title: "Outras Áreas",
-    desc: "Um escritório completo: atendimento também em Direito Trabalhista, de Família e Empresarial, do primeiro atendimento ao resultado.",
-    items: ["Trabalhista", "Família", "Empresarial"],
   },
 ];
 
@@ -131,13 +122,12 @@ export const LAWYERS: Lawyer[] = [
         "Assessoria ao produtor rural",
       ],
     },
-    tags: ["Ambiental", "Agrário", "Civil", "Empresarial"],
+    tags: ["Ambiental", "Agrário", "Civil"],
     bio: "Natural de Sena Madureira/AC, advogado desde 2022, o Dr. Gabriel é o sócio responsável pela área de Direito Ambiental e Agrário do escritório — atuando na defesa administrativa contra autos de infração ambiental, regularização fundiária, usucapião extrajudicial, consultoria preventiva e assessoria ao produtor rural. Também integra o atendimento das demais áreas do escritório, unindo rigor técnico e proximidade com o cliente em cada causa.",
     skills: [
       { nome: "Direito Ambiental", nivel: 95 },
       { nome: "Direito Agrário", nivel: 92 },
       { nome: "Direito Civil", nivel: 85 },
-      { nome: "Direito Empresarial", nivel: 80 },
     ],
     redes: {
       instagram: "https://instagram.com/sampaioegoncalves.adv",
@@ -162,11 +152,10 @@ export const LAWYERS: Lawyer[] = [
         "Defesa em processos criminais",
       ],
     },
-    tags: ["Criminal", "Trabalhista", "Previdenciário"],
+    tags: ["Criminal", "Previdenciário"],
     bio: "Natural de Sena Madureira/AC, advogado desde 2022, o Dr. Elandio é o sócio responsável pela área Criminal do escritório — atuando em audiências de custódia, habeas corpus, tribunal do júri, execução penal e defesa em processos criminais. Também integra o atendimento das demais áreas do escritório, com o mesmo compromisso técnico e combatividade em cada caso.",
     skills: [
       { nome: "Direito Criminal", nivel: 95 },
-      { nome: "Direito Trabalhista", nivel: 85 },
       { nome: "Direito Previdenciário", nivel: 80 },
     ],
     redes: {

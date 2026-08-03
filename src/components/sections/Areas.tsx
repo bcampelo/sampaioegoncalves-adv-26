@@ -46,7 +46,7 @@ export function Areas() {
         />
 
         <div
-          className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
           style={perspectiveWrap}
         >
           {PRACTICE_AREAS.map((area) => {
@@ -73,18 +73,6 @@ export function Areas() {
                         <p className="mt-1 text-xs uppercase tracking-[0.15em] text-gold/80">
                           Sócio responsável — {area.partner}
                         </p>
-                      )}
-                      {area.items && (
-                        <div className="mt-1 flex flex-wrap gap-2">
-                          {area.items.map((item) => (
-                            <span
-                              key={item}
-                              className="glass rounded-full px-3 py-1 text-xs text-ink/75"
-                            >
-                              {item}
-                            </span>
-                          ))}
-                        </div>
                       )}
                     </div>
                     <div className="mt-auto h-px w-0 bg-gradient-to-r from-gold to-transparent transition-all duration-500 ease-out-expo group-hover:w-full" />

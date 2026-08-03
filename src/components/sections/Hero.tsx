@@ -93,9 +93,19 @@ export function Hero({ introReady }: { introReady: boolean }) {
         className="shell relative z-10 flex flex-col items-start gap-9 py-32 md:py-40"
       >
         <div className="flex max-w-2xl flex-col items-start gap-9">
-          <div data-fade className="flex items-center gap-3">
-            <span className="h-px w-10 bg-gold/60" />
-            <span className="overline">{SITE.full}</span>
+          <div data-fade className="flex flex-col gap-3">
+            <div className="flex items-center gap-3">
+              <img
+                src="/logos/mark-gold.png"
+                alt={SITE.monogram}
+                className="h-9 w-auto md:h-10"
+              />
+              <span className="h-px w-10 bg-gold/60" />
+              <span className="font-display text-2xl italic tracking-tight text-ink md:text-3xl">
+                {SITE.name}
+              </span>
+            </div>
+            <span className="overline">{SITE.full} — Acre</span>
           </div>
 
           <h1 className="font-display text-display-xl font-medium text-ink">
