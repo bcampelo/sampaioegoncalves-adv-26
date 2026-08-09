@@ -81,7 +81,7 @@ export function Hero({ introReady }: { introReady: boolean }) {
       {/* Vinheta reforçada: garante leitura do texto sobre o campo 3D */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(85%_70%_at_28%_45%,rgba(5,10,20,0.82)_0%,rgba(5,10,20,0.55)_38%,transparent_68%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(75%_70%_at_50%_45%,rgba(5,10,20,0.82)_0%,rgba(5,10,20,0.55)_38%,transparent_68%)]"
       />
       <div
         aria-hidden
@@ -90,73 +90,52 @@ export function Hero({ introReady }: { introReady: boolean }) {
 
       <div
         data-hero-content
-        className="shell relative z-10 flex flex-col items-start gap-9 py-32 md:py-40"
+        className="shell relative z-10 flex flex-col items-center gap-8 py-32 text-center md:py-40"
       >
-        <div className="flex max-w-2xl flex-col items-start gap-9">
-          <div data-fade className="flex flex-col gap-3">
-            <div className="flex items-center gap-4">
-              <img
-                src="/logos/mark-gold.png"
-                alt={SITE.monogram}
-                className="h-11 w-auto md:h-14"
-              />
-              <span className="h-px w-10 bg-gold/60" />
-              <span className="font-display text-3xl italic tracking-tight text-gold-gradient md:text-4xl">
-                {SITE.name}
-              </span>
-            </div>
-            <span className="overline">{SITE.full} — Acre</span>
-          </div>
+        <img
+          data-fade
+          src="/logos/mark-gold.png"
+          alt={SITE.monogram}
+          className="h-12 w-auto md:h-16"
+        />
 
-          <h1 className="font-display text-display-xl font-medium text-ink">
-            <span className="reveal-mask">
-              <span data-hline className="inline-block">
-                A defesa dos seus direitos,
-              </span>
+        <h1 className="font-display text-display-xl font-medium leading-[1.05] text-ink">
+          <span className="reveal-mask">
+            <span data-hline className="inline-block">
+              Sampaio{" "}
+              <span className="text-gold-gradient italic">&amp;</span>{" "}
+              Gonçalves
             </span>
-            <span className="reveal-mask">
-              <span data-hline className="inline-block">
-                da terra à{" "}
-                <span className="text-gold-gradient italic">Justiça.</span>
-              </span>
-            </span>
-          </h1>
+          </span>
+        </h1>
 
-          <p
-            data-fade
-            className="max-w-md text-base leading-relaxed text-ink-muted md:text-lg"
-          >
-            Ética, estratégia e proximidade em cada causa, do primeiro
-            atendimento ao resultado.
-            <br />
-            Atendemos Sena Madureira e todo o estado do Acre.
-          </p>
+        <span data-fade className="overline">
+          Advogados Associados
+        </span>
 
-          <div
-            data-fade
-            className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-8"
+        <p
+          data-fade
+          className="max-w-md text-base leading-relaxed text-ink-muted md:text-lg"
+        >
+          A defesa dos seus direitos, da terra à Justiça.
+        </p>
+
+        <div data-fade className="flex items-center gap-3 text-xs uppercase tracking-[0.28em] text-gold/80">
+          <span className="h-px w-6 bg-gold/50" />
+          Sena Madureira — Acre
+          <span className="h-px w-6 bg-gold/50" />
+        </div>
+
+        <div data-fade>
+          <GoldButton
+            href={whatsappLink(CONTACTS.whatsapp1.raw, DEFAULT_WHATSAPP_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
+            icon={<ArrowRight size={16} />}
+            data-testid="hero-cta-whatsapp"
           >
-            <GoldButton
-              href={whatsappLink(CONTACTS.whatsapp1.raw, DEFAULT_WHATSAPP_MESSAGE)}
-              target="_blank"
-              rel="noopener noreferrer"
-              icon={<ArrowRight size={16} />}
-              data-testid="hero-cta-whatsapp"
-            >
-              Fale com o escritório
-            </GoldButton>
-            <a
-              href="#areas"
-              className="group inline-flex items-center gap-2 text-sm font-medium tracking-wide text-ink/70 transition-colors duration-300 hover:text-ink"
-              data-testid="hero-cta-areas"
-            >
-              Áreas de atuação
-              <ArrowRight
-                size={14}
-                className="transition-transform duration-300 ease-out-expo group-hover:translate-x-1"
-              />
-            </a>
-          </div>
+            Fale com o escritório
+          </GoldButton>
         </div>
       </div>
 

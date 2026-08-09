@@ -56,7 +56,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
   {
     icon: Gavel,
     title: "Direito Criminal",
-    desc: "Audiências de custódia, habeas corpus, tribunal do júri, execução penal e defesa técnica em processos criminais.",
+    desc: "Defesa técnica em todas as fases do processo penal, da investigação ao julgamento. Atuamos em audiências de custódia, impetração de habeas corpus, tribunal do júri e execução penal, unindo o rigor de quem já esteve do outro lado do processo — experiência construída também na atuação junto ao Ministério Público — à atenção humana que cada acusado merece diante da Justiça.",
     partner: "Dr. Elandio Chaves Sampaio Junior",
   },
   {
@@ -95,6 +95,9 @@ export interface Lawyer {
   /** Especialidade principal do sócio, com maior destaque no site. */
   specialty: Specialty;
   tags: string[];
+  /** Parágrafo curto (2-3 frases), tom editorial — usado na seção Advogados. */
+  summary: string;
+  /** Perfil completo — usado no modal. */
   bio: string;
   skills: Skill[];
   redes: {
@@ -126,7 +129,9 @@ export const LAWYERS: Lawyer[] = [
       ],
     },
     tags: ["Ambiental", "Agrário", "Civil"],
-    bio: "Natural de Sena Madureira/AC, advogado desde 2022, o Dr. Gabriel é o sócio responsável pela área de Direito Ambiental e Agrário do escritório — defendendo posseiros, produtores rurais e comunidades extrativistas em processos de regularização fundiária junto ao INCRA e ao ITERACRE, defesa administrativa perante o IMAC, usucapião extrajudicial, consultoria preventiva e assessoria contínua ao produtor rural. Também atua em conflitos envolvendo assentamentos e reservas extrativistas, além de integrar o atendimento das demais áreas do escritório.",
+    summary:
+      "Natural de Sena Madureira, o Dr. Gabriel iniciou a carreira no Ministério Público de Rio Branco antes de se dedicar à advocacia. Hoje conduz a área de Direito Ambiental e Agrário do escritório, ao lado de posseiros, produtores rurais e comunidades extrativistas de todo o Acre.",
+    bio: "Natural de Sena Madureira/AC, advogado desde 2022, com passagem pelo Ministério Público de Rio Branco no início da carreira, o Dr. Gabriel é o sócio responsável pela área de Direito Ambiental e Agrário do escritório — defendendo posseiros, produtores rurais e comunidades extrativistas em processos de regularização fundiária junto ao INCRA e ao ITERACRE, defesa administrativa perante o IMAC, usucapião extrajudicial, consultoria preventiva e assessoria contínua ao produtor rural. Também atua em conflitos envolvendo assentamentos e reservas extrativistas, além de integrar o atendimento das demais áreas do escritório.",
     skills: [
       { nome: "Direito Ambiental", nivel: 95 },
       { nome: "Direito Agrário", nivel: 92 },
@@ -156,7 +161,9 @@ export const LAWYERS: Lawyer[] = [
       ],
     },
     tags: ["Criminal", "Previdenciário"],
-    bio: "Natural de Sena Madureira/AC, advogado desde 2022, o Dr. Elandio é o sócio responsável pela área Criminal do escritório — atuando em audiências de custódia, habeas corpus, tribunal do júri, execução penal e defesa em processos criminais. Também integra o atendimento das demais áreas do escritório, com o mesmo compromisso técnico e combatividade em cada caso.",
+    summary:
+      "Natural de Sena Madureira, o Dr. Elandio (Júnior) iniciou a trajetória no Ministério Público de Sena Madureira antes de se dedicar à advocacia. Hoje conduz a área Criminal do escritório, com atuação firme em audiências de custódia, habeas corpus, júri e execução penal.",
+    bio: "Natural de Sena Madureira/AC, advogado desde 2022, com passagem pelo Ministério Público de Sena Madureira no início da carreira, o Dr. Elandio é o sócio responsável pela área Criminal do escritório — atuando em audiências de custódia, habeas corpus, tribunal do júri, execução penal e defesa em processos criminais. Também integra o atendimento das demais áreas do escritório, com o mesmo compromisso técnico e combatividade em cada caso.",
     skills: [
       { nome: "Direito Criminal", nivel: 95 },
       { nome: "Direito Previdenciário", nivel: 80 },
@@ -209,9 +216,9 @@ export interface NavLink {
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Início", href: "#inicio" },
-  { label: "Escritório", href: "#sobre" },
-  { label: "Áreas", href: "#areas" },
   { label: "Advogados", href: "#advogados" },
+  { label: "Áreas", href: "#areas" },
+  { label: "Escritório", href: "#sobre" },
   { label: "Contato", href: "#contato" },
 ];
 

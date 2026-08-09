@@ -10,7 +10,7 @@ export function Sobre() {
           overline="O Escritório"
           title="Uma banca construída sobre"
           emphasis="confiança."
-          description="Sampaio & Gonçalves Advogados Associados nasceu do compromisso de oferecer uma advocacia técnica, próxima e verdadeiramente dedicada a cada cliente. Nossa atuação tem foco especial em direito ambiental e agrário, área central para quem vive e trabalha na terra acreana, sustentada por um escritório completo, preparado para acompanhar o cliente em diversas frentes do direito."
+          description="Sampaio & Gonçalves Advogados Associados nasceu, em Sena Madureira, do compromisso de oferecer uma advocacia técnica, próxima e verdadeiramente dedicada a cada cliente. Nossa atuação tem foco especial em direito ambiental e agrário, área central para quem vive e trabalha na terra acreana, sustentada por um escritório completo, preparado para acompanhar o cliente em diversas frentes do direito em todo o Acre."
           className="max-w-3xl"
         />
 
@@ -20,11 +20,8 @@ export function Sobre() {
               key={item.num}
               y={28}
               delay={i * 0.08}
-              className="group flex flex-col gap-4 border-t border-ink/10 pt-8 transition-colors duration-500 hover:border-gold/30"
+              className="group flex flex-col gap-5 border-t border-ink/10 pt-9 transition-colors duration-500 hover:border-gold/30"
             >
-              <span className="font-display text-2xl text-gold/70">
-                {item.num}
-              </span>
               <h3 className="font-display text-3xl text-ink md:text-4xl">
                 {item.title}
               </h3>

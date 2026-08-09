@@ -26,9 +26,9 @@ export default function App() {
         <main>
           <Hero introReady={introReady} />
           <Marquee />
-          <Sobre />
-          <Areas />
           <Advogados />
+          <Areas />
+          <Sobre />
           <Contato />
         </main>
         <Footer />
