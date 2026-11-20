@@ -1,0 +1,73 @@
+/* ===== Camada "vida": mais ritmo de cor, sempre dentro da paleta da marca ===== */
+:root{--mist-2:#E3E8F0;--wash:#F6F1E6;--navy-2:#262D43}
+
+/* filete dourado no topo do site */
+.top{border-top:3px solid var(--gold)}
+
+/* marca d'água do monograma */
+.mark-bg{position:relative;overflow:hidden;isolation:isolate}
+.mark-bg::after{content:"";position:absolute;z-index:-1;pointer-events:none;width:min(34rem,70vw);aspect-ratio:1;background:url(../../img/monograma.png) center/contain no-repeat;opacity:.08;right:-5rem;top:50%;transform:translateY(-50%)}
+
+/* ---- página inicial: ritmo de fundos ---- */
+.hero{background:var(--mist)}
+.hero__photo,.phead__pic{isolation:isolate}
+.hero__photo::after,.phead__pic::after{content:"";position:absolute;z-index:-1;inset:1.1rem -1.1rem -1.1rem 1.1rem;background:var(--navy)}
+.hero__photo::before,.phead__pic::before{left:-1rem;top:-1rem;bottom:auto;width:34%;height:34%;border-bottom:0;border-top:3px solid var(--gold);z-index:2}
+.hero__photo,.phead__pic{margin-right:1.1rem}
+
+#advogados{background:var(--navy);color:#fff;position:relative;overflow:hidden;isolation:isolate}
+#advogados::after{content:"";position:absolute;z-index:-1;pointer-events:none;width:min(36rem,80vw);aspect-ratio:1;background:url(../../img/monograma.png) center/contain no-repeat;opacity:.07;left:50%;top:-6rem;transform:translateX(-50%)}
+#advogados .h2,#advogados h3{color:#fff}
+#advogados .lead,#advogados .bio{color:rgba(255,255,255,.8)}
+#advogados .oab{color:var(--gold)}
+#advogados .more{color:#fff;text-decoration-color:var(--gold)}
+#advogados .more:hover{color:var(--gold)}
+#advogados :focus-visible{outline-color:var(--gold)}
+#advogados .person__pic{background:var(--navy-2);outline:1px solid rgba(201,169,97,.45);outline-offset:.55rem}
+
+/* áreas com ícone */
+.item__head--ic{grid-template-columns:auto 1fr auto}
+.ic{display:grid;place-items:center;width:3.1rem;height:3.1rem;background:var(--navy);color:var(--gold);flex:none;transition:background .25s,color .25s}
+.ic svg{width:1.55rem;height:1.55rem;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.item__head--ic:hover .ic,.item.is-open .ic{background:var(--gold);color:var(--navy)}
+.item__head--ic .ic+span{padding-left:.2rem}
+
+#guias{background:var(--mist-2);position:relative;overflow:hidden;isolation:isolate}
+#guias .related a{border-color:#c6cddb}
+#guias .related a:hover{border-color:var(--navy)}
+#atendimento,.sec--tight:has(> .shell > ol.steps){background:var(--wash)}
+#sobre{background:var(--paper)}
+.about__pic{position:relative;overflow:visible;isolation:isolate;margin-right:1rem}
+.about__pic img{position:relative;z-index:1}
+.about__pic::after{content:"";position:absolute;z-index:0;inset:1.1rem -1.1rem -1.1rem 1.1rem;background:var(--mist-2)}
+#duvidas{background:var(--mist)}
+.steps li{border-top-color:var(--gold-ink)}
+
+/* contato e rodapé */
+.dark{position:relative;overflow:hidden;isolation:isolate}
+.dark::after{content:"";position:absolute;z-index:-1;pointer-events:none;width:min(36rem,80vw);aspect-ratio:1;background:url(../../img/monograma.png) center/contain no-repeat;opacity:.06;right:-6rem;top:-4rem}
+
+/* ---- páginas de serviço ---- */
+.phead{background:var(--mist);border-bottom:0}
+#guia{background:var(--navy);position:relative;overflow:hidden;isolation:isolate}
+#guia::after{content:"";position:absolute;z-index:-1;pointer-events:none;width:min(30rem,70vw);aspect-ratio:1;background:url(../../img/monograma.png) center/contain no-repeat;opacity:.07;left:-6rem;bottom:-8rem}
+#guia .h2{color:#fff}
+#guia .lead{color:rgba(255,255,255,.82)}
+.sec--mist:has(> .shell.cols2){background:var(--mist-2)}
+.sec--mist:has(> .shell.cols2) .when li{border-color:#c6cddb}
+#duvidas-area{background:var(--mist)}
+.guia{box-shadow:none}
+
+/* ---- páginas dos sócios ---- */
+.portrait__pic{overflow:visible;isolation:isolate}
+.portrait__pic img{position:relative;z-index:1}
+.portrait__pic::after{content:"";position:absolute;z-index:0;inset:1.1rem -1.1rem -1.1rem 1.1rem;background:var(--navy)}
+.portrait{padding-right:1.1rem}
+main > .phead:only-of-type .portrait{}
+
+@media (max-width:52rem){
+  .hero__photo,.phead__pic,.about__pic{margin-right:1.1rem}
+}
+@media (prefers-reduced-motion:reduce){.ic{transition:none}}
+.portrait__pic{margin-right:1.1rem}
+@media (max-width:62rem){.portrait__pic{max-width:calc(26rem + 1.1rem)}}
